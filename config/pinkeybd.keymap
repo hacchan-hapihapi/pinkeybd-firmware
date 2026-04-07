@@ -109,10 +109,10 @@
 
         symbol_layer {
             bindings = <
-&kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6  &mkp MB2   &kp N7     &kp N8         &kp N9            &kp N0
-&kp PRINTSCREEN  &none         &none         &none         &to 2     &trans        &kp MINUS  &kp EQUAL  &kp BACKSLASH  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&F1_6            &F2_7         &F3_8         &F4_9         &F5_10    &F11_12       &kp UP     &kp DOWN   &kp RIGHT      &kp SINGLE_QUOTE  &kp GRAVE
-&trans           &trans        &trans        &trans        &kp LEFT  &trans        &to 0      &trans     &trans
+&kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6  &mkp MB2        &kp N7     &kp N8         &kp N9            &kp N0
+&kp PRINTSCREEN  &none         &none         &none         &to 2     &trans        &kp UP_ARROW    &kp MINUS  &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&F1_6            &F2_7         &F3_8         &F4_9         &F5_10    &F11_12       &kp DOWN_ARROW  &kp RIGHT  &kp BACKSLASH  &kp SINGLE_QUOTE  &kp GRAVE
+&trans           &trans        &trans        &trans        &kp LEFT  &trans        &to 0           &trans     &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
