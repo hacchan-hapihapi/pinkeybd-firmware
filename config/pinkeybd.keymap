@@ -75,7 +75,7 @@
 &kp NUMBER_1  &kp NUMBER_2     &kp NUMBER_3  &kp NUMBER_4  &kp N5          &trans  &mkp MB2            &kp MINUS  &kp EQUAL         &kp BACKSLASH      &kp GRAVE
 &kp NUMBER_6  &kp N7           &kp N8        &kp N9        &kp N0          &trans  &none               &kp UP     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE
 &kp F11       &kp PRINTSCREEN  &none         &none         &danger_3times  &trans  &kp LEFT            &kp DOWN   &kp RIGHT         &none              &none
-&trans        &trans           &trans        &trans        &trans          &trans  &tap_layer LSHFT 0  &trans     &trans
+&trans        &trans           &trans        &trans        &trans          &trans  &tap_layer RSHFT 0  &trans     &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
