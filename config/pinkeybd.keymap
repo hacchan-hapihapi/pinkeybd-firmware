@@ -44,10 +44,10 @@
         compatible = "zmk,keymap";
 
         //---------------------------------------------------------------------------
-        //|  Q  |  W  |  E  |  R  |  T  | ESC | |     |  Y  |  U  |  I  |  O  |  P  |
-        //|  A  |  S  |  D  |  F  |  G  | MB3 | |     |  H  |  J  |  K  |  L  | ;:  |
-        //|  Z  |  X  |  C  |  V  |  B  |SPACE| |BS/DE|  N  |  M  | ,<  | .>  | /?  |
-        //|S/TAB|     |     |L_ALT|L_SFT|L_CTL| | MB1 |S/L1 |R_ALT|     |     |S/ENT|
+        //|  Q  |  W  |  E  |  R  |  T  | ESC |.|.....|  Y  |  U  |  I  |  O  |  P  |
+        //|  A  |  S  |  D  |  F  |  G  | MB3 |.|.....|  H  |  J  |  K  |  L  | ;:  |
+        //|  Z  |  X  |  C  |  V  |  B  |SPACE|.|BACKS|  N  |  M  | ,<  | .>  | /?  |
+        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L1 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         default_layer {
@@ -58,14 +58,14 @@
 &mt LEFT_SHIFT TAB  &kp LEFT_ALT  &kp LSHFT  &kp LCTRL  &kp BACKSPACE  &mkp MB1   &tap_layer RSHFT 1  &kp RIGHT_ALT  &mt RIGHT_SHIFT ENTER
             >;
 
-            sensor-bindings = <&rot_msc SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
 
         //---------------------------------------------------------------------------
-        //| 1!  | 2@  | 3#  | 4$  | 5%  | ESC | |     | MB2 | -_  | =+  |\\\| | `~  |
-        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 | |     |     | UP  | [{  | ]}  | '"  |
-        //| F11 |PRI_S|     |     | L2  |SPACE| |BS/DE|LEFT |DOWN |RIGHT|     |     |
-        //|S/TAB|     |     |L_ALT|L_SFT|L_CTL| | MB1 |S/L0 |R_ALT|     |     |S/ENT|
+        //| 1!  | 2@  | 3#  | 4$  | 5%  | ESC |.|.....| MB2 | -_  | =+  |\\\| | `~  |
+        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 |.|.....|     | UP  | [{  | ]}  | '"  |
+        //| F11 |PRI_S|     |     | L2  |SPACE|.|DELET|LEFT |DOWN |RIGHT|     |     |
+        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         symbol_layer {
@@ -76,14 +76,14 @@
 &trans        &trans           &trans        &trans        &kp DELETE      &trans  &tap_layer RSHFT 0  &trans     &trans
             >;
 
-            sensor-bindings = <&rot_msc SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
 
         //---------------------------------------------------------------------------
-        //| F1  | F2  | F3  | F4  | F5  | ESC | |     | MB2 |     |STUDI|RESET|BOOT |
-        //| F6  | F7  | F8  | F9  | F10 | MB3 | |     | BT0 | BT1 | BT2 |BT_C |BT_CA|
-        //| F11 | F12 |     |     | L0  |SPACE| |BS/DE|     |     |     |     |     |
-        //|S/TAB|     |     |L_ALT|L_SFT|L_CTL| | MB1 |S/L0 |R_ALT|     |     |S/ENT|
+        //| F1  | F2  | F3  | F4  | F5  | ESC |.|.....| MB2 |Auto |STUDI|RESET|BOOT |
+        //| F6  | F7  | F8  | F9  | F10 | MB3 |.|.....| BT0 | BT1 | BT2 |BT_C |BT_CA|
+        //| F11 | F12 |     |     | L0  |SPACE|.|BACKS|     |     |     |     |     |
+        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         function_layer {
@@ -94,7 +94,7 @@
 &trans   &trans   &trans  &trans  &kp BACKSPACE  &trans  &tap_layer RSHFT 0  &trans        &trans
             >;
 
-            sensor-bindings = <&rot_msc SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
     };
 };
