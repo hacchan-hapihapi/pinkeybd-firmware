@@ -58,7 +58,7 @@
 &mt LEFT_SHIFT TAB  &kp LEFT_ALT  &kp LSHFT  &kp LCTRL  &kp BACKSPACE  &mkp MB1   &tap_layer RSHFT 1  &kp RIGHT_ALT  &mt RIGHT_SHIFT ENTER
             >;
 
-            sensor-bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            sensor-bindings = <&rot_msc SCRL_UP>, <&rot_msc SCRL_DOWN>;
         };
 
         //---------------------------------------------------------------------------
@@ -76,7 +76,7 @@
 &trans        &trans           &trans        &trans        &kp DELETE      &trans  &tap_layer RSHFT 0  &trans     &trans
             >;
 
-            sensor-bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            sensor-bindings = <&rot_msc SCRL_UP>, <&rot_msc SCRL_DOWN>;
         };
 
         //---------------------------------------------------------------------------
@@ -94,7 +94,7 @@
 &trans   &trans   &trans  &trans  &kp BACKSPACE  &trans  &tap_layer RSHFT 0  &trans        &trans
             >;
 
-            sensor-bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            sensor-bindings = <&rot_msc SCRL_UP>, <&rot_msc SCRL_DOWN>;
         };
     };
 };
