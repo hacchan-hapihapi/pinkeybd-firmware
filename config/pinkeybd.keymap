@@ -15,15 +15,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        bs_del: bs_del {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BS_DEL";
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         tap_layer: tap_layer {
             compatible = "zmk,behavior-hold-tap";
             label = "TAP_LAYER";
@@ -46,54 +37,54 @@
         compatible = "zmk,keymap";
 
         //---------------------------------------------------------------------------
-        //|  Q  |  W  |  E  |  R  |  T  | ESC | |     |  Y  |  U  |  I  |  O  |  P  |
-        //|  A  |  S  |  D  |  F  |  G  | MB3 | |     |  H  |  J  |  K  |  L  | ;:  |
-        //|  Z  |  X  |  C  |  V  |  B  |SPACE| |BS/DE|  N  |  M  | ,<  | .>  | /?  |
-        //|S/TAB|     |     |L_ALT|L_SFT|L_CTL| | MB1 |S/L1 |R_ALT|     |     |S/ENT|
+        //|  Q  |  W  |  E  |  R  |  T  | ESC |.|.....|  Y  |  U  |  I  |  O  |  P  |
+        //|  A  |  S  |  D  |  F  |  G  | MB3 |.|.....|  H  |  J  |  K  |  L  | ;:  |
+        //|  Z  |  X  |  C  |  V  |  B  |SPACE|.|BACKS|  N  |  M  | ,<  | .>  | /?  |
+        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L1 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         default_layer {
             bindings = <
-&kp Q               &kp W         &kp E      &kp R      &kp T    &kp ESC    &kp Y               &kp U          &kp I                  &kp O       &kp P
-&kp A               &kp S         &kp D      &kp F      &kp G    &mkp MB3   &kp H               &kp J          &kp K                  &kp L       &kp SEMICOLON
-&kp Z               &kp X         &kp C      &kp V      &kp B    &kp SPACE  &kp N               &kp M          &kp COMMA              &kp PERIOD  &kp SLASH
-&mt LEFT_SHIFT TAB  &kp LEFT_ALT  &kp LSHFT  &kp LCTRL  &bs_del  &mkp MB1   &tap_layer RSHFT 1  &kp RIGHT_ALT  &mt RIGHT_SHIFT ENTER
+&kp Q          &kp W     &kp E      &kp R      &kp T     &kp ESC    &kp Y               &kp U     &kp I            &kp O    &kp P
+&kp A          &kp S     &kp D      &kp F      &kp G     &mkp MB3   &kp H               &kp J     &kp K            &kp L    &kp SEMI
+&kp Z          &kp X     &kp C      &kp V      &kp B     &kp SPACE  &kp N               &kp M     &kp COMMA        &kp DOT  &kp SLASH
+&mt LSHFT TAB  &kp LALT  &kp LSHFT  &kp LCTRL  &kp BSPC  &mkp MB1   &tap_layer RSHFT 1  &kp RALT  &mt RSHFT ENTER
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
         };
 
         //---------------------------------------------------------------------------
-        //| 1!  | 2@  | 3#  | 4$  | 5%  | ESC | |     | MB2 | -_  | =+  |\\\| | `~  |
-        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 | |     |     | UP  | [{  | ]}  | '"  |
-        //| F11 |PRI_S|     |     | L2  |SPACE| |BS/DE|LEFT |DOWN |RIGHT|     |     |
-        //|S/TAB|     |     |L_ALT|L_SFT|L_CTL| | MB1 |S/L0 |R_ALT|     |     |S/ENT|
+        //| 1!  | 2@  | 3#  | 4$  | 5%  | ESC |.|.....| MB2 | -_  | =+  |\\\| | `~  |
+        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 |.|.....|     | UP  | [{  | ]}  | '"  |
+        //| F11 |PRI_S|     |     | L2  |SPACE|.|DELET|LEFT |DOWN |RIGHT|     |     |
+        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         symbol_layer {
             bindings = <
-&kp NUMBER_1  &kp NUMBER_2     &kp NUMBER_3  &kp NUMBER_4  &kp N5          &trans  &mkp MB2            &kp MINUS  &kp EQUAL         &kp BACKSLASH      &kp GRAVE
-&kp NUMBER_6  &kp N7           &kp N8        &kp N9        &kp N0          &trans  &none               &kp UP     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE
-&kp F11       &kp PRINTSCREEN  &none         &none         &danger_3times  &trans  &kp LEFT            &kp DOWN   &kp RIGHT         &none              &none
-&trans        &trans           &trans        &trans        &trans          &trans  &tap_layer RSHFT 0  &trans     &trans
+&kp N1   &kp N2     &kp N3  &kp N4  &kp N5          &trans  &mkp MB2            &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
+&kp N6   &kp N7     &kp N8  &kp N9  &kp N0          &trans  &none               &kp UP     &kp LBKT   &kp RBKT  &kp SQT
+&kp F11  &kp PSCRN  &none   &none   &danger_3times  &trans  &kp LEFT            &kp DOWN   &kp RIGHT  &none     &none
+&trans   &trans     &trans  &trans  &kp DELETE      &trans  &tap_layer RSHFT 0  &trans     &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
         };
 
         //---------------------------------------------------------------------------
-        //| F1  | F2  | F3  | F4  | F5  | ESC | |     | MB2 |     |STUDI|RESET|BOOT |
-        //| F6  | F7  | F8  | F9  | F10 | MB3 | |     | BT0 | BT1 | BT2 |BT_C |BT_CA|
-        //| F11 | F12 |     |     | L0  |SPACE| |BS/DE|     |     |     |     |     |
-        //|S/TAB|     |     |L_ALT|L_SFT|L_CTL| | MB1 |S/L0 |R_ALT|     |     |S/ENT|
+        //| F1  | F2  | F3  | F4  | F5  | ESC |.|.....| MB2 |     |STUDI|RESET|BOOT |
+        //| F6  | F7  | F8  | F9  | F10 | MB3 |.|.....| BT0 | BT1 | BT2 |BT_C |BT_CA|
+        //| F11 | F12 |     |     | L0  |SPACE|.|BACKS|     |     |     |     |     |
+        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         function_layer {
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5   &trans  &mkp MB2            &none         &studio_unlock  &sys_reset  &bootloader
-&kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &trans  &bt BT_SEL 0        &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_CLR  &bt BT_CLR_ALL
-&kp F11  &kp F12  &none   &none   &to 0    &trans  &none               &none         &none           &none       &none
-&trans   &trans   &trans  &trans  &trans   &trans  &tap_layer RSHFT 0  &trans        &trans
+&kp F1   &kp F2   &kp F3  &kp F4  &kp F5    &trans  &mkp MB2            &none         &studio_unlock  &sys_reset  &bootloader
+&kp F6   &kp F7   &kp F8  &kp F9  &kp F10   &trans  &bt BT_SEL 0        &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_CLR  &bt BT_CLR_ALL
+&kp F11  &kp F12  &none   &none   &to 0     &trans  &none               &none         &none           &none       &none
+&trans   &trans   &trans  &trans  &kp BSPC  &trans  &tap_layer RSHFT 0  &trans        &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
