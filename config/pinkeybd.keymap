@@ -25,11 +25,11 @@
             tapping-term-ms = <200>;
         };
 
-        danger_3times: danger_3times {
+        danger_2times: danger_2times {
             compatible = "zmk,behavior-tap-dance";
-            label = "DANGER_3TIMES";
+            label = "DANGER_2TIMES";
             #binding-cells = <0>;
-            bindings = <&none>, <&none>, <&to 2>;
+            bindings = <&none>, <&to 2>;
         };
     };
 
@@ -56,17 +56,17 @@
 
         //---------------------------------------------------------------------------
         //| 1!  | 2@  | 3#  | 4$  | 5%  | ESC |.|.....| MB2 | -_  | =+  |\\\| | `~  |
-        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 |.|.....|     | UP  | [{  | ]}  | '"  |
-        //| F11 |PRI_S|     |     | L2  |SPACE|.|DELET|LEFT |DOWN |RIGHT|     |     |
+        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 |.|.....|DELET| UP  | [{  | ]}  | '"  |
+        //| F11 |PRI_S| BT0 | BT1 | L2  |SPACE|.|BACKS|LEFT |DOWN |RIGHT|     |     |
         //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         symbol_layer {
             bindings = <
-&kp N1   &kp N2     &kp N3  &kp N4  &kp N5          &trans  &mkp MB2            &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
-&kp N6   &kp N7     &kp N8  &kp N9  &kp N0          &trans  &none               &kp UP     &kp LBKT   &kp RBKT  &kp SQT
-&kp F11  &kp PSCRN  &none   &none   &danger_3times  &trans  &kp LEFT            &kp DOWN   &kp RIGHT  &none     &none
-&trans   &trans     &trans  &trans  &kp DELETE      &trans  &tap_layer RSHFT 0  &trans     &trans
+&kp N1   &kp N2     &kp N3        &kp N4        &kp N5          &trans  &mkp MB2            &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
+&kp N6   &kp N7     &kp N8        &kp N9        &kp N0          &trans  &kp DEL             &kp UP     &kp LBKT   &kp RBKT  &kp SQT
+&kp F11  &kp PSCRN  &bt BT_SEL 0  &bt BT_SEL 1  &danger_2times  &trans  &kp LEFT            &kp DOWN   &kp RIGHT  &none     &none
+&trans   &trans     &trans        &trans        &trans          &trans  &tap_layer RSHFT 0  &trans     &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
@@ -74,17 +74,17 @@
 
         //---------------------------------------------------------------------------
         //| F1  | F2  | F3  | F4  | F5  | ESC |.|.....| MB2 |     |STUDI|RESET|BOOT |
-        //| F6  | F7  | F8  | F9  | F10 | MB3 |.|.....| BT0 | BT1 | BT2 |BT_C |BT_CA|
-        //| F11 | F12 |     |     | L0  |SPACE|.|BACKS|     |     |     |     |     |
+        //| F6  | F7  | F8  | F9  | F10 | MB3 |.|.....|DELET|     | BT2 |BT_C |BT_CA|
+        //| F11 | F12 | BT0 | BT1 | L0  |SPACE|.|BACKS|     |     |     |     |     |
         //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         function_layer {
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5    &trans  &mkp MB2            &none         &studio_unlock  &sys_reset  &bootloader
-&kp F6   &kp F7   &kp F8  &kp F9  &kp F10   &trans  &bt BT_SEL 0        &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_CLR  &bt BT_CLR_ALL
-&kp F11  &kp F12  &none   &none   &to 0     &trans  &none               &none         &none           &none       &none
-&trans   &trans   &trans  &trans  &kp BSPC  &trans  &tap_layer RSHFT 0  &trans        &trans
+&kp F1   &kp F2   &kp F3        &kp F4        &kp F5   &trans  &mkp MB2            &none   &studio_unlock  &sys_reset  &bootloader
+&kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &trans  &kp DEL             &none   &bt BT_SEL 2    &bt BT_CLR  &bt BT_CLR_ALL
+&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &to 0    &trans  &none               &none   &none           &none       &none
+&trans   &trans   &trans        &trans        &trans   &trans  &tap_layer RSHFT 0  &trans  &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
