@@ -55,17 +55,17 @@
         };
 
         //---------------------------------------------------------------------------
-        //| 1!  | 2@  | 3#  | 4$  | 5%  | ESC |.|.....| MB2 | -_  | =+  |\\\| | `~  |
-        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 |.|.....|DELET| UP  | [{  | ]}  | '"  |
-        //| F11 |PRI_S| BT0 | BT1 | L2  |SPACE|.|BACKS|LEFT |DOWN |RIGHT|     |     |
+        //| F11 |PRI_S| BT0 | BT1 | L2  | ESC |.|.....| MB2 | UP  |     |     | `~  |
+        //| 1!  | 2@  | 3#  | 4$  | 5%  | MB3 |.|.....|LEFT |DOWN |RIGHT| [{  | ]}  |
+        //| 6^  | 7&  | 8*  | 9(  | 0)  |SPACE|.|BACKS|DELET| -_  | =+  |\\\| | '"  |
         //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         symbol_layer {
             bindings = <
-&kp N1   &kp N2     &kp N3        &kp N4        &kp N5          &trans  &mkp MB2            &kp MINUS  &kp EQUAL  &kp BSLH  &kp GRAVE
-&kp N6   &kp N7     &kp N8        &kp N9        &kp N0          &trans  &kp DEL             &kp UP     &kp LBKT   &kp RBKT  &kp SQT
-&kp F11  &kp PSCRN  &bt BT_SEL 0  &bt BT_SEL 1  &danger_2times  &trans  &kp LEFT            &kp DOWN   &kp RIGHT  &none     &none
+&kp F11  &kp PSCRN  &bt BT_SEL 0  &bt BT_SEL 1  &danger_2times  &trans  &mkp MB2            &kp UP     &none      &none     &kp GRAVE
+&kp N1   &kp N2     &kp N3        &kp N4        &kp N5          &trans  &kp LEFT            &kp DOWN   &kp RIGHT  &kp LBKT  &kp RBKT
+&kp N6   &kp N7     &kp N8        &kp N9        &kp N0          &trans  &kp DEL             &kp MINUS  &kp EQUAL  &kp BSLH  &kp SQT
 &trans   &trans     &trans        &trans        &trans          &trans  &tap_layer RSHFT 0  &trans     &trans
             >;
 
@@ -73,17 +73,17 @@
         };
 
         //---------------------------------------------------------------------------
-        //| F1  | F2  | F3  | F4  | F5  | ESC |.|.....| MB2 |     |STUDI|RESET|BOOT |
-        //| F6  | F7  | F8  | F9  | F10 | MB3 |.|.....|DELET|     | BT2 |BT_C |BT_CA|
-        //| F11 | F12 | BT0 | BT1 | L0  |SPACE|.|BACKS|     |     |     |     |     |
+        //| F11 | F12 | BT0 | BT1 | L0  | ESC |.|.....| MB2 |     | BT2 |BT_C |BT_CA|
+        //| F1  | F2  | F3  | F4  | F5  | MB3 |.|.....|     |     |STUDI|RESET|BOOT |
+        //| F6  | F7  | F8  | F9  | F10 |SPACE|.|BACKS|DELET|     |     |     |     |
         //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |S/L0 |R_ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         function_layer {
             bindings = <
-&kp F1   &kp F2   &kp F3        &kp F4        &kp F5   &trans  &mkp MB2            &none   &studio_unlock  &sys_reset  &bootloader
-&kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &trans  &kp DEL             &none   &bt BT_SEL 2    &bt BT_CLR  &bt BT_CLR_ALL
-&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &to 0    &trans  &none               &none   &none           &none       &none
+&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &to 0    &trans  &mkp MB2            &none   &bt BT_SEL 2    &bt BT_CLR  &bt BT_CLR_ALL
+&kp F1   &kp F2   &kp F3        &kp F4        &kp F5   &trans  &none               &none   &studio_unlock  &sys_reset  &bootloader
+&kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &trans  &kp DEL             &none   &none           &none       &none
 &trans   &trans   &trans        &trans        &trans   &trans  &tap_layer RSHFT 0  &trans  &trans
             >;
 
