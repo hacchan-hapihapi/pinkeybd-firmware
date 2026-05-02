@@ -48,18 +48,36 @@
         };
 
         //---------------------------------------------------------------------------
-        //| 1!  | 2@  | 3#  | 4$  | 5%  | ESC |.|.....| MB2 | UP  | [{  | ]}  | =+  |
-        //| 6^  | 7&  | 8*  | 9(  | 0)  | MB3 |.|.....|LEFT |DOWN |RIGHT| ;:  | -_  |
-        //| F11 |\\\| | `~  |PRI_S| L2  |SPACE|.|BACKS|DELET| '"  | ,<  | .>  | /?  |
-        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |L0/L0|R_ALT|.....|.....|S/ENT|
+        //| 1!  | 2@  | 3#  | 4$  | 5%  |_____|.|.....| MB2 | UP  | [{  | ]}  | =+  |
+        //| 6^  | 7&  | 8*  | 9(  | 0)  |_____|.|.....|LEFT |DOWN |RIGHT| ;:  |_____|
+        //| F11 |\\\| | `~  |PRI_S| L3  |_____|.|_____|DELET| '"  |_____|_____|_____|
+        //|_____|.....|.....|_____|_____|_____|.|_____|L2/L0|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         symbol_layer {
             bindings = <
 &kp N1   &kp N2    &kp N3     &kp N4           &kp N5  &trans  &mkp MB2          &kp UP    &kp LBKT   &kp RBKT  &kp EQUAL
 &kp N6   &kp N7    &kp N8     &kp N9           &kp N0  &trans  &kp LEFT          &kp DOWN  &kp RIGHT  &kp SEMI  &trans
-&kp F11  &kp BSLH  &kp GRAVE  &kp PRINTSCREEN  &mo 2   &trans  &kp DEL           &kp SQT   &trans     &trans    &trans
-&trans   &trans    &trans     &trans           &trans  &trans  &layer_layer 0 0  &trans    &trans
+&kp F11  &kp BSLH  &kp GRAVE  &kp PRINTSCREEN  &mo 3   &trans  &kp DEL           &kp SQT   &trans     &trans    &trans
+&trans   &trans    &trans     &trans           &trans  &trans  &layer_layer 2 0  &trans    &trans
+            >;
+
+            sensor-bindings = <&rot_kp PG_DN PG_UP>;
+        };
+
+        //---------------------------------------------------------------------------
+        //|  Q  |  W  |  E  |  R  |  T  |_____|.|.....|  Y  |  U  |  I  |  O  |  P  |
+        //|  A  |  S  |  D  |  F  |  G  |_____|.|.....|  H  |  J  |  K  |  L  |_____|
+        //|  Z  |  X  |  C  |  V  |  B  |_____|.|_____|  N  |  M  |_____|_____|_____|
+        //|_____|.....|.....|_____|_____|_____|.|_____|_____|_____|.....|.....|_____|
+        //---------------------------------------------------------------------------
+
+        alphabet_layer {
+            bindings = <
+&kp Q   &kp W   &kp E   &kp R   &kp T   &trans  &kp Y   &kp U   &kp I   &kp O   &kp P
+&kp A   &kp S   &kp D   &kp F   &kp G   &trans  &kp H   &kp J   &kp K   &kp L   &trans
+&kp Z   &kp X   &kp C   &kp V   &kp B   &trans  &kp N   &kp M   &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
@@ -68,7 +86,7 @@
         //---------------------------------------------------------------------------
         //| F1  | F2  | F3  | F4  | F5  |_____|.|.....|     |     |     |STUDI| BT2 |
         //| F6  | F7  | F8  | F9  | F10 |_____|.|.....|     |     |     |RESET|BT_C |
-        //| F11 | F12 | BT0 | BT1 |(L2) |_____|.|_____|     |     |     |BOOT |BT_CA|
+        //| F11 | F12 | BT0 | BT1 |(L3) |_____|.|_____|     |     |     |BOOT |BT_CA|
         //|_____|.....|.....|_____|_____|_____|.|_____| L0  |_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
@@ -76,7 +94,7 @@
             bindings = <
 &kp F1   &kp F2   &kp F3        &kp F4        &kp F5   &trans  &none  &none   &none   &studio_unlock  &bt BT_SEL 2
 &kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &trans  &none  &none   &none   &sys_reset      &bt BT_CLR
-&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &trans   &trans  &none  &none   &none   &bootloader     &bt BT_CLR_ALL
+&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &mo 3    &trans  &none  &none   &none   &bootloader     &bt BT_CLR_ALL
 &trans   &trans   &trans        &trans        &trans   &trans  &to 0  &trans  &trans
             >;
 
