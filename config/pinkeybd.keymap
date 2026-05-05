@@ -15,6 +15,10 @@
             bindings = <&kp>, <&kp>;
         };
 
+        layer_state_proxy: layer_state_proxy {
+            compatible = "zmk,behavior-layer-state-proxy";
+        };
+
         layer_layer: layer_layer {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_LAYER";
@@ -41,7 +45,7 @@
 &kp Q          &kp W     &kp E      &kp R      &kp T     &kp ESC    &kp Y             &kp U     &kp I            &kp O    &kp P
 &kp A          &kp S     &kp D      &kp F      &kp G     &mkp MB3   &kp H             &kp J     &kp K            &kp L    &kp MINUS
 &kp Z          &kp X     &kp C      &kp V      &kp B     &kp SPACE  &kp N             &kp M     &kp COMMA        &kp DOT  &kp SLASH
-&mt LSHFT TAB  &kp LALT  &kp LSHFT  &kp LCTRL  &kp BSPC  &mkp MB1   &layer_layer 1 1  &kp RALT  &mt RSHFT ENTER
+&mt LSHFT TAB  &kp LALT  &kp LSHFT  &kp LCTRL  &kp BSPC  &mkp MB1   &layer_layer 1 1 &layer_state_proxy  &kp RALT  &mt RSHFT ENTER
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
@@ -58,8 +62,8 @@
             bindings = <
 &kp N1   &kp N2    &kp N3     &kp N4           &kp N5  &trans  &mkp MB2          &kp UP    &kp LBKT   &kp RBKT  &kp EQUAL
 &kp N6   &kp N7    &kp N8     &kp N9           &kp N0  &trans  &kp LEFT          &kp DOWN  &kp RIGHT  &kp SEMI  &trans
-&kp F11  &kp BSLH  &kp GRAVE  &kp PRINTSCREEN  &mo 3   &trans  &kp DEL           &kp SQT   &trans     &trans    &trans
-&trans   &trans    &trans     &trans           &trans  &trans  &layer_layer 2 0  &trans    &trans
+&kp F11  &kp BSLH  &kp GRAVE  &kp PRINTSCREEN  &mo 3 &layer_state_proxy   &trans  &kp DEL           &kp SQT   &trans     &trans    &trans
+&trans   &trans    &trans     &trans           &trans  &trans  &layer_layer 2 0 &layer_state_proxy  &trans    &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
@@ -94,8 +98,8 @@
             bindings = <
 &kp F1   &kp F2   &kp F3        &kp F4        &kp F5   &trans  &none  &none   &none   &studio_unlock  &bt BT_SEL 2
 &kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &trans  &none  &none   &none   &sys_reset      &bt BT_CLR
-&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &mo 3    &trans  &none  &none   &none   &bootloader     &bt BT_CLR_ALL
-&trans   &trans   &trans        &trans        &trans   &trans  &to 0  &trans  &trans
+&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &mo 3 &layer_state_proxy    &trans  &none  &none   &none   &bootloader     &bt BT_CLR_ALL
+&trans   &trans   &trans        &trans        &trans   &trans  &to 0 &layer_state_proxy  &trans  &trans
             >;
 
             sensor-bindings = <&rot_kp PG_DN PG_UP>;
