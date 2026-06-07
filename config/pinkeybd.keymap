@@ -9,12 +9,6 @@
 
 / {
     behaviors {
-        rot_kp: sensor_rotate_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-
         layer_layer: layer_layer {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_LAYER";
@@ -33,6 +27,16 @@
 
             tap-ms = <20>;
         };
+
+        hold_shift_mo1: hold_shift_mo1 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_SHIFT_MO1";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "hold-preferred";
+            bindings = <&none>, <&kp LSHFT &mo 1>;
+        };
     };
 
     keymap {
@@ -42,15 +46,15 @@
         //|  Q  |  W  |  E  |  R  |  T  | ESC |.|.....|  Y  |  U  |  I  |  O  |  P  |
         //|  A  |  S  |  D  |  F  |  G  | MB3 |.|.....|  H  |  J  |  K  |  L  | -_  |
         //|  Z  |  X  |  C  |  V  |  B  |SPACE|.|BACKS|  N  |  M  | ,<  | .>  | /?  |
-        //|S/TAB|.....|.....|L_ALT|L_SFT|L_CTL|.| MB1 |L1/L1|R_ALT|.....|.....|S/ENT|
+        //|L_ALT|.....|.....|S/TAB|S+mo1|L_CTL|.| MB1 |&mo_1|S/ALT|.....|.....|S/ENT|
         //---------------------------------------------------------------------------
 
         default_layer {
             bindings = <
-&kp Q     &kp W          &kp E      &kp R      &kp T     &kp ESC    &kp Y             &kp U            &kp I      &kp O    &kp P
-&kp A     &kp S          &kp D      &kp F      &kp G     &mkp MB3   &kp H             &kp J            &kp K      &kp L    &kp MINUS
-&kp Z     &kp X          &kp C      &kp V      &kp B     &kp SPACE  &kp N             &kp M            &kp COMMA  &kp DOT  &kp SLASH
-&kp LALT  &mt LSHFT TAB  &kp LSHFT  &kp LCTRL  &kp BSPC  &mkp MB1   &layer_layer 1 1  &mt RSHFT ENTER  &kp RALT
+&kp Q     &kp W          &kp E            &kp R      &kp T     &kp ESC    &kp Y  &kp U           &kp I            &kp O    &kp P
+&kp A     &kp S          &kp D            &kp F      &kp G     &mkp MB3   &kp H  &kp J           &kp K            &kp L    &kp MINUS
+&kp Z     &kp X          &kp C            &kp V      &kp B     &kp SPACE  &kp N  &kp M           &kp COMMA        &kp DOT  &kp SLASH
+&kp LALT  &mt LSHFT TAB  &hold_shift_mo1  &kp LCTRL  &kp BSPC  &mkp MB1   &mo 1  &mt RSHFT RALT  &mt RSHFT ENTER
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -59,8 +63,8 @@
         //---------------------------------------------------------------------------
         //| 1!  | 2@  | 3#  | 4$  | 5%  |_____|.|.....| MB2 | UP  | [{  | ]}  | =+  |
         //| 6^  | 7&  | 8*  | 9(  | 0)  |_____|.|.....|LEFT |DOWN |RIGHT| ;:  |_____|
-        //| F11 |\\\| | `~  |PRI_S| L3  |_____|.|_____|DELET| '"  |_____|_____|_____|
-        //|_____|.....|.....|_____|_____|_____|.|_____|L2/L0|_____|.....|.....|_____|
+        //| F11 |\\\| | `~  |PRI_S|&mo_3|_____|.|_____|DELET| '"  |_____|_____|_____|
+        //|_____|.....|.....|_____|&to_1|_____|.|_____|L2/L0|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         symbol_layer {
@@ -68,7 +72,7 @@
 &kp N1   &kp N2    &kp N3     &kp N4           &kp N5  &trans  &mkp MB2          &kp UP    &kp LBKT   &kp RBKT  &kp EQUAL
 &kp N6   &kp N7    &kp N8     &kp N9           &kp N0  &trans  &kp LEFT          &kp DOWN  &kp RIGHT  &kp SEMI  &trans
 &kp F11  &kp BSLH  &kp GRAVE  &kp PRINTSCREEN  &mo 3   &trans  &kp DEL           &kp SQT   &trans     &trans    &trans
-&trans   &trans    &trans     &trans           &trans  &trans  &layer_layer 2 0  &trans    &trans
+&trans   &trans    &to 1      &trans           &trans  &trans  &layer_layer 2 0  &trans    &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -96,7 +100,7 @@
         //| F1  | F2  | F3  | F4  | F5  |_____|.|.....|     |     |     |STUDI| BT2 |
         //| F6  | F7  | F8  | F9  | F10 |_____|.|.....|     |     |     |RESET|BT_C |
         //| F11 | F12 | BT0 | BT1 |(L3) |_____|.|_____|     |     |     |BOOT |BT_CA|
-        //|_____|.....|.....|_____|_____|_____|.|_____| L0  |_____|.....|.....|_____|
+        //|_____|.....|.....|_____|&to_0|_____|.|_____|&to_0|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         function_layer {
@@ -104,7 +108,7 @@
 &kp F1   &kp F2   &kp F3        &kp F4        &kp F5   &trans  &none  &none   &none   &studio_unlock  &bt BT_SEL 2
 &kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &trans  &none  &none   &none   &sys_reset      &bt BT_CLR
 &kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &mo 3    &trans  &none  &none   &none   &bootloader     &bt BT_CLR_ALL
-&trans   &trans   &trans        &trans        &trans   &trans  &to 0  &trans  &trans
+&trans   &trans   &to 0         &trans        &trans   &trans  &to 0  &trans  &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
