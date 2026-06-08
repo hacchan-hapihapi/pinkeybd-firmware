@@ -9,16 +9,6 @@
 
 / {
     behaviors {
-        layer_layer: layer_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_LAYER";
-            bindings = <&mo>, <&to>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-        };
-
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_MSC_DOWN_UP";
@@ -66,15 +56,15 @@
         //| 1!  | 2@  | 3#  | 4$  | 5%  |_____|.|.....| MB2 | UP  | [{  | ]}  | =+  |
         //| 6^  | 7&  | 8*  | 9(  | 0)  |_____|.|.....|LEFT |DOWN |RIGHT| ;:  |_____|
         //| F11 |\\\| | `~  |PRI_S|&mo_3|_____|.|_____|DELET| '"  |_____|_____|_____|
-        //|_____|.....|.....|_____|&to_1|_____|.|_____|L2/L0|_____|.....|.....|_____|
+        //|_____|.....|.....|_____|&to_1|_____|.|_____|&mo_2|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         symbol_layer {
             bindings = <
-&kp N1   &kp N2    &kp N3     &kp N4           &kp N5  &trans  &mkp MB2          &kp UP    &kp LBKT   &kp RBKT  &kp EQUAL
-&kp N6   &kp N7    &kp N8     &kp N9           &kp N0  &trans  &kp LEFT          &kp DOWN  &kp RIGHT  &kp SEMI  &trans
-&kp F11  &kp BSLH  &kp GRAVE  &kp PRINTSCREEN  &mo 3   &trans  &kp DEL           &kp SQT   &trans     &trans    &trans
-&trans   &trans    &to 1      &trans           &trans  &trans  &layer_layer 2 0  &trans    &trans
+&kp N1   &kp N2    &kp N3     &kp N4           &kp N5  &trans  &mkp MB2  &kp UP    &kp LBKT   &kp RBKT  &kp EQUAL
+&kp N6   &kp N7    &kp N8     &kp N9           &kp N0  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SEMI  &trans
+&kp F11  &kp BSLH  &kp GRAVE  &kp PRINTSCREEN  &mo 3   &trans  &kp DEL   &kp SQT   &trans     &trans    &trans
+&trans   &trans    &to 1      &trans           &trans  &trans  &mo 2     &trans    &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -84,15 +74,15 @@
         //|  Q  |  W  |  E  |  R  |  T  |_____|.|.....|  Y  |  U  |  I  |  O  |  P  |
         //|  A  |  S  |  D  |  F  |  G  |_____|.|.....|  H  |  J  |  K  |  L  |_____|
         //|  Z  |  X  |  C  |  V  |  B  |_____|.|_____|  N  |  M  |_____|_____|_____|
-        //|_____|.....|.....|_____|_____|_____|.|_____|_____|_____|.....|.....|_____|
+        //|_____|.....|.....|_____|&to_0|_____|.|_____|_____|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         alphabet_layer {
             bindings = <
-&kp Q   &kp W   &kp E   &kp R   &kp T   &trans  &kp Y   &kp U   &kp I   &kp O   &kp P
-&kp A   &kp S   &kp D   &kp F   &kp G   &trans  &kp H   &kp J   &kp K   &kp L   &trans
-&kp Z   &kp X   &kp C   &kp V   &kp B   &trans  &kp N   &kp M   &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp Q   &kp W   &kp E  &kp R   &kp T   &trans  &kp Y   &kp U   &kp I   &kp O   &kp P
+&kp A   &kp S   &kp D  &kp F   &kp G   &trans  &kp H   &kp J   &kp K   &kp L   &trans
+&kp Z   &kp X   &kp C  &kp V   &kp B   &trans  &kp N   &kp M   &trans  &trans  &trans
+&trans  &trans  &to 0  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
