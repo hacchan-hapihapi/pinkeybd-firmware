@@ -48,7 +48,6 @@
                 <&macro_press &mo 3 &kp LSHFT>,
                 <&macro_pause_for_release>,
                 <&macro_release &mo 3 &kp LSHFT>;
-
         };
     };
 
@@ -77,15 +76,15 @@
         //| 1!  | 2@  | 3#  | 4$  | 5%  |_____|.|.....| MB2 | UP  | [{  | ]}  | =+  |
         //| 6^  | 7&  | 8*  | 9(  | 0)  |_____|.|.....|LEFT |DOWN |RIGHT| ;:  |_____|
         //| F11 |\\\| | `~  |PRI_S|&mo_4|_____|.|_____|DELET| '"  |_____|_____|_____|
-        //|_____|.....|.....|_____|h-to2|_____|.|_____|&mo_1|_____|.....|.....|_____|
+        //|_____|.....|.....|_____|h-to2|_____|.|_____|h-to2|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         momentary_movement_layer {
             bindings = <
-&kp N1   &kp N2    &kp N3        &kp N4           &kp N5  &trans  &mkp MB2  &kp UP    &kp LBKT   &kp RBKT  &kp EQUAL
-&kp N6   &kp N7    &kp N8        &kp N9           &kp N0  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SEMI  &trans
-&kp F11  &kp BSLH  &kp GRAVE     &kp PRINTSCREEN  &mo 4   &trans  &kp DEL   &kp SQT   &trans     &trans    &trans
-&trans   &trans    &hold_to 2 0  &trans           &trans  &trans  &mo 1     &trans    &trans
+&kp N1   &kp N2    &kp N3        &kp N4           &kp N5  &trans  &mkp MB2      &kp UP    &kp LBKT   &kp RBKT  &kp EQUAL
+&kp N6   &kp N7    &kp N8        &kp N9           &kp N0  &trans  &kp LEFT      &kp DOWN  &kp RIGHT  &kp SEMI  &trans
+&kp F11  &kp BSLH  &kp GRAVE     &kp PRINTSCREEN  &mo 4   &trans  &kp DEL       &kp SQT   &trans     &trans    &trans
+&trans   &trans    &hold_to 2 0  &trans           &trans  &trans  &hold_to 2 0  &trans    &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -113,15 +112,15 @@
         //|  Q  |  W  |  E  |  R  |  T  |_____|.|.....|  Y  |  U  |  I  |  O  |  P  |
         //|  A  |  S  |  D  |  F  |  G  |_____|.|.....|  H  |  J  |  K  |  L  |_____|
         //|  Z  |  X  |  C  |  V  |  B  |_____|.|_____|  N  |  M  |_____|_____|_____|
-        //|_____|.....|.....|_____|h-to0|_____|.|_____|&mo_3|_____|.....|.....|_____|
+        //|_____|.....|.....|_____|h-to0|_____|.|_____|h-to0|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         alphabet_layer {
             bindings = <
-&kp Q   &kp W   &kp E         &kp R   &kp T   &trans  &kp Y  &kp U   &kp I   &kp O   &kp P
-&kp A   &kp S   &kp D         &kp F   &kp G   &trans  &kp H  &kp J   &kp K   &kp L   &trans
-&kp Z   &kp X   &kp C         &kp V   &kp B   &trans  &kp N  &kp M   &trans  &trans  &trans
-&trans  &trans  &hold_to 0 0  &trans  &trans  &trans  &to 3  &trans  &trans
+&kp Q   &kp W   &kp E         &kp R   &kp T   &trans  &kp Y         &kp U   &kp I   &kp O   &kp P
+&kp A   &kp S   &kp D         &kp F   &kp G   &trans  &kp H         &kp J   &kp K   &kp L   &trans
+&kp Z   &kp X   &kp C         &kp V   &kp B   &trans  &kp N         &kp M   &trans  &trans  &trans
+&trans  &trans  &hold_to 0 0  &trans  &trans  &trans  &hold_to 0 0  &trans  &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -130,16 +129,16 @@
         //---------------------------------------------------------------------------
         //| F1  | F2  | F3  | F4  | F5  |_____|.|.....|     |     |     |STUDI| BT2 |
         //| F6  | F7  | F8  | F9  | F10 |_____|.|.....|     |     |     |RESET|BT_C |
-        //| F11 | F12 | BT0 | BT1 |(L4) |_____|.|_____|     |     |     |BOOT |BT_CA|
-        //|_____|.....|.....|_____|&to_0|_____|.|_____|&to_0|_____|.....|.....|_____|
+        //| F11 | F12 | BT0 | BT1 |&none|_____|.|_____|     |     |     |BOOT |BT_CA|
+        //|_____|.....|.....|_____|&none|_____|.|_____|&none|_____|.....|.....|_____|
         //---------------------------------------------------------------------------
 
         function_layer {
             bindings = <
 &kp F1   &kp F2   &kp F3        &kp F4        &kp F5   &trans  &none  &none   &none   &studio_unlock  &bt BT_SEL 2
 &kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &trans  &none  &none   &none   &sys_reset      &bt BT_CLR
-&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &mo 4    &trans  &none  &none   &none   &bootloader     &bt BT_CLR_ALL
-&trans   &trans   &to 0         &trans        &trans   &trans  &to 0  &trans  &trans
+&kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &none    &trans  &none  &none   &none   &bootloader     &bt BT_CLR_ALL
+&trans   &trans   &none         &trans        &trans   &trans  &none  &trans  &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
